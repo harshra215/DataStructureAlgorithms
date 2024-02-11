@@ -1,0 +1,18 @@
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int N = 0,M = matrix[0].size()-1;
+
+        //Let N--> rows && M--> Cols
+        while(N<matrix.size() && M>=0)
+        {
+            if(matrix[N][M]==target)
+            return 1;
+            else if(matrix[N][M]<target)
+            N++;
+            else
+            M--;
+        }
+        return 0;
+    }
+};
