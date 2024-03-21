@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int projectionArea(vector<vector<int>>& grid) {
+        int n = grid.size(),m=n,ans=0;
+
+        for(int i=0;i<n;i++){
+            int start=0,mid=0,end=0;
+            for(int j=0;j<n;j++){
+                //start
+                if(grid[i][j])
+                start++;
+                //mid
+                mid = max(mid,grid[i][j]);
+                //end
+                end = max(end,grid[j][i]);
+            }
+
+            ans += start + mid + end;
+        }
+
+        return ans;
+    }
+};
